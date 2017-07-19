@@ -11,9 +11,7 @@ class PicturesController < ApplicationController
 
     p.save
 
-    @current_count = Photo.count
-
-    render("pic_templates/create_row.html.erb")
+    redirect_to("/photos")
   end
 
   def index
@@ -42,9 +40,7 @@ class PicturesController < ApplicationController
 
     p.save
 
-    @the_id = p.id
-
-    render("pic_templates/update_row.html.erb")
+    redirect_to("/photos/#{p.id}")
   end
 
   def destroy_row
@@ -52,8 +48,6 @@ class PicturesController < ApplicationController
 
     p.destroy
 
-    @remaining_count = Photo.count
-
-    render("pic_templates/destroy_row.html.erb")
+    redirect_to("/photos")
   end
 end

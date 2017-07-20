@@ -1,0 +1,27 @@
+<h1>All Photos</h1>
+
+<a href="/photos/new">
+  Add a new photo
+</a>
+
+<% @list_photos.each do |curr| %>
+<div class="thumbnail">
+    <img src="<%= curr.source%>" width = "400">
+    
+    <div class="caption">
+      <a href="/photos/<%= curr.id %>" class="btn btn-default btn-block">
+        Show Details
+      </a>
+    
+      <a href="/photos/<%= curr.id %>/edit" class="btn btn-default btn-block">
+        Edit
+      </a>
+    
+      <a href="/delete_photo/<%= curr.id %>" class="btn btn-default btn-block">
+        Delete
+      </a>
+    </div>
+</div>
+<% end %>
+
+

@@ -3,6 +3,12 @@ class PicturesController < ApplicationController
         render("pic_templates/new_form.html.erb");
     end
     def create_row
+        p = Photo.new;
+        
+        p.source = params["the_source"];
+        p.caption = params["the_caption"];
+        
+        p.save
         render("pic_templates/create_row.html.erb");
     end
     def index

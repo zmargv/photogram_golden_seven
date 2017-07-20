@@ -8,10 +8,11 @@ class PicturesController < ApplicationController
         p.source = params["the_source"];
         p.caption = params["the_caption"];
         
-        p.save
+        p.save;
         render("pic_templates/create_row.html.erb");
     end
     def index
+        @list_photos = Photo.all;
         render("pic_templates/index.html.erb");
     end
     def show

@@ -9,7 +9,8 @@ class PicturesController < ApplicationController
         p.caption = params["the_caption"];
         
         p.save;
-        render("pic_templates/create_row.html.erb");
+        # render("pic_templates/create_row.html.erb");
+        redirect_to "/photos";
     end
     def index
         @list_photos = Photo.all.order('photos.id DESC');
@@ -31,10 +32,12 @@ class PicturesController < ApplicationController
         p.caption = params["the_caption"];
         
         p.save;
-        render("pic_templates/update_row.html.erb");
+        # render("pic_templates/update_row.html.erb");
+        redirect_to "/photos/"+params["some_id"];
     end
     def destroy_row
         Photo.find(params["toast_id"]).destroy;
-        render("pic_templates/destroy_row.html.erb");
+        # render("pic_templates/destroy_row.html.erb");
+        redirect_to "/photos";
     end
 end

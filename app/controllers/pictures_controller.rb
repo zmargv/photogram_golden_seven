@@ -20,6 +20,7 @@ class PicturesController < ApplicationController
         render("pic_templates/update_row.html.erb");
     end
     def destroy_row
+        Photo.find(params["toast_id"]).destroy;
         render("pic_templates/destroy_row.html.erb");
     end
 end
